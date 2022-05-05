@@ -1,26 +1,100 @@
-import hashlib
-import datetime
-import multiprocessing
-import itertools
+использование системы;
+использование System.Collections.Generic;
+использование System.Linq;
+использование System.Text;
+использование System.IO;
+использование System.Security.Cryptography;
+использование System.Threading;
+использование System.Diagnostics;
 
+пространство имен OS_2_Somonov_A_V_BBBO_10_20
+{
+     программа класса
+    {
+        статический список<string> хэши = новый список<string>();
+        статический объект removeLock = новый объект();
+        статический  таймер секундомера = новый секундомер();
+        static void Main(string[] args)
+        {
+            Console.backgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Введите кол-во потоков: ");
+            var threadCount = int.Parse(Console.ReadLine());
+            hashes.AddRange(File.ReadAllLines("C:\\Users\\User\\Desktop\\Учеба, 2 курс, 4 сем\\Операционные системы\\Практики\\ОС2\\OS_2_Somonov_A_V_BBBO_10_20\\hashes.txt"));
 
-def f(x):
-    x = ''.join(x)
-    return (x, hashlib.sha256(x.encode('cp1251')).hexdigest())
+            foreach (хэш var  в хэшах)
+                Console.WriteLine(хэш);
 
+            Console.WriteLine("Брутфорс запущен");
+            timer.Start();
 
-if __name__ == '__main__':
-    count_treads = int(input('Введите количество потоков:'))
-    # Считываем все ключи из файла
-    with open('pass.txt') as fl:
-        passwords = fl.readlines()
-    # Для каждого ключа ищем пароль
-    for ps in passwords:
-        print(datetime.datetime.now())
-        ps = ps.strip().lower()
-        if len(ps) == 0:
-            continue
-        with multiprocessing.Pool(count_treads) as pool:
-            for s, _ in filter(lambda x: x[1] == ps, pool.imap_unordered(f, itertools.product('abcdefghijklmnopqrstuvwxyz', repeat=5), chunksize=1000)):
-                print(s)
-    print(datetime.datetime.now())
+            List<Thread> threads = новый список<Thread>();
+            for (int i = 0; i < threadCount; i++)
+            {
+                var thread = new Thread(BruteForce);
+                threads.Add(thread);
+                thread.Start();
+            }
+
+            while (threads.Where(a => a.IsAlive).Count() > 0)
+                Thread.Sleep(500);
+
+            Console.WriteLine("Брутфорс окончен");
+            Console.ReadKey();
+        }
+
+        static void BruteForce()
+        {
+            for (char c1 = 'a'; c1 <= 'z'; c1++)
+            {
+                for (char c2 = 'a'; c2 <= 'z'; c2++)
+                {
+                    for (char c3 = 'a'; c3 <= 'z'; c3++)
+                    {
+                        for (char c4 = 'a'; c4 <= 'z'; c4++)
+                        {
+                            for (char c5 = 'a'; c5 <= 'z'; c5++)
+                            {
+                                var pass = "" + c1 + c2 + c3 + c4 + c5;
+                                var passHash = sha256(pass);
+
+                                List<string> localHashes = новый список<string> (хэши);
+
+                                for (int k = 0; k < localHashes.Count; k++)
+                                {
+                                    var hash = localHashes[k];
+                                    if (passHash == hash)
+                                    {
+                                        попробуйте
+                                        {
+                                            блокировка (removeLock)
+                                            {
+                                                hashes.Remove(хэш);
+                                            }
+
+                                            Console.WriteLine(pass);
+                                            Console.WriteLine(timer.Elapsed.toString());
+                                        }
+                                        catch (исключение) { }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        статическая строка sha256(строка randomString)
+        {
+            var crypt = new SHA256Managed();
+            var hash = new StringBuilder();
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.getBytes(randomString));
+            foreach (байт theByte в crypto)
+            {
+                hash.Append(theByte.toString("x2"));
+            }
+            return hash.toString();
+        }
+    }
+}
