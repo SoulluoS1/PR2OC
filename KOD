@@ -1,0 +1,24 @@
+Файл решения Microsoft Visual Studio, версия формата 12.00
+# Visual Studio Версия 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OS_2_Somonov_A_V_BBBO_10_20", "OS_2_Somonov_A_V_BBBO_10_20\OS_2_Somonov_A_V_BBBO_10_20.csproj", "{490B0F63-44F0 -48E5-8AA3-6BB2B24DA74F}"
+Конечный проект
+Глобальный
+	GlobalSection(SolutionConfigurationPlatforms) = Предварительное решение
+		Debug|Any CPU = Debug|Any CPU
+		Release/Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{490B0F63-44F0-48E5-8AA3-6BB2B24DA74F}.Debug|Любой процессор.ActiveCfg = Debug|Любой процессор
+		{490B0F63-44F0-48E5-8AA3-6BB2B24DA74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490B0F63-44F0-48E5-8AA3-6BB2B24DA74F}.Release|Любой процессор.ActiveCfg = Release|Любой процессор
+		{490B0F63-44F0-48E5-8AA3-6BB2B24DA74F}.Release/Any CPU.Build|0 = Release/Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = Предварительное решение
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = Пострешение
+		SolutionGuid = {9C763F23-BAD6-447B-BBEF-0488FB97F9BD}
+	EndGlobalSection
+EndGlobal
